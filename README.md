@@ -2,6 +2,10 @@
 
 2. MVC ARTITECTURE----done
 
-3. DB configuration
+3. DB configuration---done
 
-// MVC 
+// MVC mderl ---done
+
+// Helper function Joi validation, password hashing, salt etc
+
+//Joi---for validation
