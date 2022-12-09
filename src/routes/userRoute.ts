@@ -11,9 +11,11 @@ const router=express.Router()
 router.post("/register", Register)
 router.post("/verify/:signature", VerifyUser)
 router.post("/login", Login)
+
 router.get("/resend-otp/:signature", resendOTP)
-router.get("/get-all-users", getAllUser)
-router.get("/get-single-user",auth,getSingleUser)
+router.get("/get-all-users", auth, getAllUser)
+router.get("/get-single-user", auth, getSingleUser)
+
 router.patch("/update-profile",auth, updateUserProfile)
 
 

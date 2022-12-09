@@ -1,3 +1,10 @@
+# Technologies
+Typescript
+express
+sqlite3
+
+CRUD operatioon using MERN
+
 1 . setup------doone
 
 2. MVC ARTITECTURE----done

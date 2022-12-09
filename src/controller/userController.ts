@@ -28,7 +28,7 @@ export const Register = async (
   next: NextFunction
 ) => {
   try {
-    const { email, phone, password, confirm_passwoord } = req.body;
+    const { email, phone, password, confirm_password } = req.body;
     const iduuid = uuidv4();
     //console.log(iduuid)
     const validateResult = registerSchema.validate(req.body, option);
@@ -90,10 +90,12 @@ export const Register = async (
       });
     }
     return res.status(401).json({
-      message: "User already created",
+      Error: "User already created",
     });
   } catch (error) {
+    console.log(error),
     res.status(500).json({
+    
       Error: "Internal server error",
       route: "/user/register",
     });
@@ -139,6 +141,8 @@ export const VerifyUser = async (req: Request, res: Response) => {
     return res.status(400).json({
       Error: "Token already expire",
     });
+
+
   } catch (err) {
     console.log(err);
     res.status(500).json({
@@ -265,6 +269,9 @@ export const getAllUser=async(req:Request, res:Response)=>{
       })
    }
 }
+
+
+
 /**==================SINGLE USER PROFILE============================= */
 export const getSingleUser=async(req:JwtPayload, res:Response, next:NextFunction)=>{
   try {
@@ -308,7 +315,7 @@ try {
       where: { id: id },
     })) as unknown as UserAttribute;
     
-    if(User){
+    if(!User){
       return res.status(400).json({
         Error:"You are not authorize to update your profile"
       })

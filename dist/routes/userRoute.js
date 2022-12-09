@@ -11,7 +11,7 @@ router.post("/register", userController_1.Register);
 router.post("/verify/:signature", userController_1.VerifyUser);
 router.post("/login", userController_1.Login);
 router.get("/resend-otp/:signature", userController_1.resendOTP);
-router.get("/get-all-users", userController_1.getAllUser);
+router.get("/get-all-users", auth_1.auth, userController_1.getAllUser);
 router.get("/get-single-user", auth_1.auth, userController_1.getSingleUser);
 router.patch("/update-profile", auth_1.auth, userController_1.updateUserProfile);
 exports.default = router;

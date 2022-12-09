@@ -20,7 +20,7 @@ UserInstance.init({
             notNull: {
                 msg: "Email provide address"
             },
-            isEmail: {
+            notEmpty: {
                 msg: "Please provide a valid email"
             }
         }

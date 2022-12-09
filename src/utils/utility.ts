@@ -16,10 +16,10 @@ export const registerSchema=Joi.object().keys({
    
 })
 export const updateSchema=Joi.object().keys({
-     firstName:Joi.string().required(),
-     lastName:Joi.string().required(),
-    address: Joi.string().required(),
-    phone:Joi.string().required(),
+     firstName:Joi.string(),
+     lastName:Joi.string(),
+    address: Joi.string(),
+    phone:Joi.string()
   
    
 })
@@ -31,6 +31,29 @@ export const adminSchema=Joi.object().keys({
     address: Joi.string().required(),
     phone:Joi.string().required(),
     email: Joi.string().required(),
+ 
+  
+})
+
+
+export const vendorSchema=Joi.object().keys({
+    name:Joi.string().required(),
+    resturantName: Joi.string().required(),
+    password: Joi.string().regex(/^[a-z0-9]{3,30}$/),
+    address: Joi.string().required(),
+    phone:Joi.string().required(),
+    email: Joi.string().required(),
+    pincode:Joi.string().required()
+ 
+  
+})
+
+export const updateVendorSchema=Joi.object().keys({
+    name:Joi.string(),
+    phone:Joi.string(),
+    address: Joi.string(),
+    coverImage:Joi.string()
+   
  
   
 })

@@ -13,7 +13,7 @@ export const onRequestOTP= async(otp:number, toPhoneNumber:string)=>{
     const client = require('twilio')(accountSid, authToken); 
     
     const response= await client.messages.create({
-        body:`Your Otp is ${otp}`,
+        body:`Your Otp is ${otp} and will expire in 20minute times`,
         from: fromAdminPhone,
         to: toPhoneNumber
     })

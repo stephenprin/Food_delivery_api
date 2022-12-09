@@ -17,7 +17,7 @@ const uuid_1 = require("uuid");
 const config_1 = require("../config");
 const Register = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const { email, phone, password, confirm_passwoord } = req.body;
+        const { email, phone, password, confirm_password } = req.body;
         const iduuid = (0, uuid_1.v4)();
         //console.log(iduuid)
         const validateResult = utility_1.registerSchema.validate(req.body, utility_1.option);
@@ -73,14 +73,15 @@ const Register = (req, res, next) => __awaiter(void 0, void 0, void 0, function*
             });
         }
         return res.status(401).json({
-            message: "User already created",
+            Error: "User already created",
         });
     }
     catch (error) {
-        res.status(500).json({
-            Error: "Internal server error",
-            route: "/user/register",
-        });
+        console.log(error),
+            res.status(500).json({
+                Error: "Internal server error",
+                route: "/user/register",
+            });
     }
 });
 exports.Register = Register;
@@ -266,7 +267,7 @@ const updateUserProfile = (req, res) => __awaiter(void 0, void 0, void 0, functi
         const User = (yield userModel_1.UserInstance.findOne({
             where: { id: id },
         }));
-        if (User) {
+        if (!User) {
             return res.status(400).json({
                 Error: "You are not authorize to update your profile"
             });
