@@ -10,6 +10,7 @@ export const db= new Sequelize('app','','', {
 })
 
 
+
 export const accountSid=process.env.ACOUNTSID
 export const authToken=process.env.AUTHTOKEN
 export const fromAdminPhone=process.env.FROMADMINPHONE
